@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: postgres-ingress
+  namespace: my-namespace
+spec:
+  rules:
+  - host: adminer.com
+    http:
+      paths:  
+        - path: /test
+          pathType: Prefix
+          backend:
+            service:
+              name: adminer-service
+              port:
+                number: 8080
