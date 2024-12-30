@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: adminer-service
+  namespace: my-namespace
+spec:
+  type: LoadBalancer
+  selector:
+    app: adminer # label of pod
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080 # port of pod
+      nodePort: 30003 # port for external ip address, need to specific in browser to access service, must be 30000-32767

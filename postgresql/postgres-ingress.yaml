@@ -5,13 +5,13 @@ metadata:
   namespace: my-namespace
 spec:
   rules:
-  - host: adminer.com
-    http:
-      paths:  
-        - path: /test
-          pathType: Prefix
-          backend:
-            service:
-              name: adminer-service
-              port:
-                number: 8080
+    - host: adminer.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: adminer-service
+                port:
+                  number: 8080
